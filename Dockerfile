@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:18-jdk-alpine
 VOLUME /tmp
 ARG JAR_FILE
 ENV PORT 8080
