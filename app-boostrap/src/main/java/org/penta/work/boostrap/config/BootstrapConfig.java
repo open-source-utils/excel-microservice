@@ -4,7 +4,7 @@ import org.penta.work.boostrap.domain.AccountDomain;
 import org.penta.work.boostrap.port.RequestAccounts;
 import org.penta.work.boostrap.port.incoming.AccountWriter;
 import org.penta.work.boostrap.port.outgoing.AccountReader;
-import org.penta.work.boostrap.port.outgoing.ExcelPort;
+import org.penta.work.boostrap.port.universal.ExcelPort;
 import org.penta.work.jpa.config.JpaConfig;
 import org.penta.work.poi.adapter.config.PoiConfig;
 import org.springframework.context.annotation.Bean;

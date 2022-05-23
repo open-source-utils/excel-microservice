@@ -21,7 +21,7 @@ public class AccountEntity {
     private Long id;
 
     @Column(unique=true)
-    private long accountNo;
+    private String accountNo;
 
     private String name;
 

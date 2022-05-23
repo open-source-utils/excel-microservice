@@ -4,12 +4,11 @@ import org.penta.work.boostrap.port.model.Account;
 import org.penta.work.boostrap.port.outgoing.AccountReader;
 import org.penta.work.jpa.repository.AccountRepository;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class AccountReadService implements AccountReader {
-    private AccountRepository repository;
+    private final AccountRepository repository;
 
     public AccountReadService(AccountRepository repository) {
         this.repository = repository;

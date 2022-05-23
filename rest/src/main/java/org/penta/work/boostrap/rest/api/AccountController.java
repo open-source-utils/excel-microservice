@@ -1,47 +1,40 @@
 package org.penta.work.boostrap.rest.api;
 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.penta.work.boostrap.port.RequestAccounts;
 import org.penta.work.boostrap.port.model.Account;
+import org.penta.work.boostrap.rest.api.common.VersionedApiController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/v1")
+@VersionedApiController
 public class AccountController {
 
-    private RequestAccounts requestAccounts;
+    private final RequestAccounts requestAccounts;
 
     public AccountController(RequestAccounts requestAccounts) {
         this.requestAccounts = requestAccounts;
     }
 
-    @GetMapping(value = "/active")
+    @GetMapping(value = "/account/active")
     ResponseEntity activeAccounts() {
         List<Account> accounts = requestAccounts.getActiveAccounts();
         return new ResponseEntity<>(accounts,
                 HttpStatus.OK);
     }
 
-
-    @GetMapping(value = "/add")
-    ResponseEntity add() {
-        Account account = Account.builder().name("Shakti").accountNo(500L).accountBalance(BigDecimal.valueOf(111L)).build();
+    @PostMapping(value = "/add")
+    ResponseEntity add(@RequestBody Account account) {
         boolean result = requestAccounts.addAccount(account);
-        return new ResponseEntity<>(result,
-                HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @GetMapping("/export/excel")

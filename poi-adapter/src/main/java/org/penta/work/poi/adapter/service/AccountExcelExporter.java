@@ -13,19 +13,12 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.penta.work.boostrap.port.model.Account;
-import org.penta.work.boostrap.port.outgoing.ExcelPort;
+import org.penta.work.boostrap.port.universal.ExcelPort;
 
 public class AccountExcelExporter implements ExcelPort {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private List<Account> listAccounts;
-     
-//    public AccountExcelExporter(List<Account> listAccounts) {
-//        this.listAccounts = listAccounts;
-//        workbook = new XSSFWorkbook();
-//    }
-//
- 
     private void writeHeaderLine() {
         sheet = workbook.createSheet("Accounts");
          

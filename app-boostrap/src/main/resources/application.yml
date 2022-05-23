@@ -1,8 +1,22 @@
 spring:
+#  profiles:
+#    active: dev
 #  main:
 #    allow-bean-definition-overriding: true
 #  autoconfigure:
 #    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 server:
   port: 8090
+#  contextPath: /api/v1/*
+#  servlet:
+#    contextPath: /api/v1/*
+v1API: /api/v1
 
+logging:
+  level:
+    org.springframework: ERROR
+    org.penta.work: DEBUG
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
+  file: logs/excel-microservice-console.log

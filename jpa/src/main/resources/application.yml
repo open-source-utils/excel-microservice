@@ -15,3 +15,7 @@ spring:
     console.path: /h2-console
     console.settings.trace: true
     spring.h2.console.settings.web-allow-others: false
+
+lombok:
+  anyConstructor:
+    addConstructorProperties: true

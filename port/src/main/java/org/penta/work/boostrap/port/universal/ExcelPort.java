@@ -1,4 +1,4 @@
-package org.penta.work.boostrap.port.outgoing;
+package org.penta.work.boostrap.port.universal;
 
 import org.penta.work.boostrap.port.model.Account;
 

@@ -1,11 +1,12 @@
 package org.penta.work.boostrap.domain;
 
 import lombok.Builder;
- import org.penta.work.boostrap.port.RequestAccounts;
+import static org.penta.work.boostrap.domain.utils.NumberUtil.generateAccountNumber;
+import org.penta.work.boostrap.port.RequestAccounts;
 import org.penta.work.boostrap.port.incoming.AccountWriter;
 import org.penta.work.boostrap.port.model.Account;
 import org.penta.work.boostrap.port.outgoing.AccountReader;
-import org.penta.work.boostrap.port.outgoing.ExcelPort;
+import org.penta.work.boostrap.port.universal.ExcelPort;
 
 import javax.servlet.ServletOutputStream;
 import java.io.IOException;
@@ -32,6 +33,7 @@ public class AccountDomain implements RequestAccounts {
 
     @Override
     public boolean addAccount(Account account) {
+        account.setAccountNo(generateAccountNumber());
         return accountWriter.addAccount(account);
     }
 
